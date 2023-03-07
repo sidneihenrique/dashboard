@@ -1,0 +1,299 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+:root {
+    font-size: 62.5%;
+    font-size: 1.2vh;
+}
+
+body {
+    font-size: 2.6rem;
+    font-family: 'Inter', sans-serif;
+    color: #FFFFFF;
+
+    background: #292738;
+
+}
+
+/* Classes utilitárias */
+
+.grid {
+    display: grid;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.box {
+    padding: 2.9rem 4.8rem;
+
+    background: #363447;
+    box-shadow: 0.3rem 0.4rem 2.6rem rgba(0,0,0, 0.25);
+    border-radius: 1.6rem;
+    line-height: 160%;
+
+    gap: 3.2rem;
+
+}
+
+#app {
+
+    column-gap: 3.2rem;
+    row-gap: 5.9rem;
+
+    width: fit-content;
+    height: fit-content;
+    min-height: 100vh;
+
+    margin: auto;
+
+    place-content: center;
+    padding: 3.2rem;
+}
+
+.top {
+    font-weight: 600;
+    font-size: 2.4rem;
+
+}
+
+.middle {
+    display: grid;
+    place-content: center;
+
+    position: relative;
+}
+
+.middle .content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.bottom {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: auto;
+    font-size: 1.4rem;
+    font-weight: 500;
+}
+
+.bottom .item {
+    display: flex;
+    align-items: center;
+    gap: 1rem
+}
+
+.bottom .item span {
+    --bg-color: #4A4556;
+}
+
+.bottom .item span:nth-child(1) {
+    display: flex;
+    align-items: center;
+    gap: .4rem;
+}
+
+.bottom .item span:nth-child(1)::before {
+    content: "";
+    width: 1.5rem;
+    height: 1.5rem;
+    display: block;
+    border-radius: 50%;
+    background: var(--bg-color);
+}
+
+.nps {
+    gap: 3.2rem;
+}
+
+.nps .middle {
+    min-height: 19.7rem;
+    place-content: center;
+
+    justify-items: center;
+    gap: 1.6rem;
+    color: #81FBB8;
+}
+
+.nps .bottom {
+    gap: 1rem;
+}
+
+svg {
+    --percentage: 0;
+    width: 19.7rem;
+    height: 19.7rem;
+    transform: rotate(-90deg);
+}
+
+svg circle {
+    stroke-dasharray: 618;
+    stroke-dashoffset: 618;
+    stroke-width: 35;
+    fill: none;
+}
+
+svg circle:nth-child(1) {
+    stroke-dashoffset: 0;
+}
+
+svg circle:nth-child(2) {
+    stroke-dashoffset: calc(618 - (618 * var(--percentage))/100);
+    stroke-linecap: round;
+
+    animation: progress 1s ease-in-out;
+}
+
+@keyframes progress {
+    0% {
+        stroke-dasharray: 618;
+        stroke-dashoffset: 618;
+    }
+}
+
+.content h3 {
+    font-size: 3.2rem;
+    line-height: 120%;
+}
+
+.content p {
+    line-height: 100%;
+    font-size: 1.6rem;
+}
+
+.weekly-sell {
+    gap: 3.2rem;
+}
+
+.weekly-sell .wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 3.2rem;
+}
+
+.weekly-sell .left {
+    gap: 3.2rem;
+    grid-auto-flow: column;
+}
+
+.weekly-sell .left,
+.weekly-sell .right {
+    flex: 1;
+}
+
+.left .grid {
+    gap: .8rem;
+    font-weight: 500;
+    font-size: 2.4rem;
+
+}
+
+.left .grid span {
+    font-size: 1.4rem;
+    display: flex;
+    gap: .4rem;
+}
+
+.left .grid span::before {
+    content: "";
+    width: 15px;
+    height: 15px;
+
+    display: block;
+
+    clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+}
+
+.left .grid .most-sell span::before {
+    background: linear-gradient(180deg, #81FBB8 0%, #28C76F 100%);
+}
+
+.left .grid .less-sell span::before {
+    background: linear-gradient(180deg, #EA5455 0%, #FEB692 100%);
+    transform: matrix(1, 0, 0, -1, 0, 0);
+}
+
+.bars {
+    display: flex;
+    gap: calc(3vw + 1rem);
+    align-items: flex-end;
+    position: relative;
+}
+
+.bars::before {
+    content: "";
+    display: block;
+    height: .3rem;
+    width: 100%;
+    background: #4A4556;
+    border-radius: 999px;
+    position: absolute;
+
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 0;
+
+}
+
+.bar-wrapper {
+    display: grid;
+    grid-template-rows: 15.9rem 1.6rem;
+    justify-items: center;
+    gap: .5rem;
+    z-index: 1;
+
+    font-size: 1.4rem;
+}
+
+.bar {
+    width: 1.5rem;
+    height: var(--height);
+    background: linear-gradient(180deg, #90F7EC 0%, #32CCBC 100%);
+
+    border-radius: 999px;
+    align-self: end;
+
+    animation: up 1.4s;
+}
+
+@keyframes up {
+    0% {
+        height: 0;
+    }
+}
+
+@media (min-width: 1200px) {
+    #app {
+        grid-template-columns: 29.6rem repeat(2, max-content);
+        grid-template-rows: max-content;
+    }
+
+    .box:nth-child(4) {
+        grid-column-start: 1; 
+        grid-column:   1/4;
+    }
+
+    .weekly-sell .wrapper {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .weekly-sell .left {
+        grid-auto-flow: initial;
+    }
+
+    .bars {
+        gap: 5.9rem;
+    }
+}
