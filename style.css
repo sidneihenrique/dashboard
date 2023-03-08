@@ -211,15 +211,16 @@ svg circle:nth-child(2) {
     height: 15px;
 
     display: block;
-
+    
     clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+    margin-top: .8rem;
 }
 
-.left .grid .most-sell span::before {
+.most-sell span::before {
     background: linear-gradient(180deg, #81FBB8 0%, #28C76F 100%);
 }
 
-.left .grid .less-sell span::before {
+.less-sell span::before {
     background: linear-gradient(180deg, #EA5455 0%, #FEB692 100%);
     transform: matrix(1, 0, 0, -1, 0, 0);
 }
